@@ -7,6 +7,6 @@ latest_tag=$(git describe --tags --abbrev=0)
 IFS='.' read -r major minor patch <<< "${latest_tag//v}"
 
 # Construct the new version
-new_version="v${major}.${minor}.${patch}"
+new_version="${major}.${minor}.${patch}"
 
 echo "New version: $new_version"
