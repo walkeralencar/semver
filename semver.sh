@@ -10,7 +10,7 @@ if [ -n "$latest_semver_tag" ]; then
 fi
 
 # Get the latest tag
-latest_tag=$(git describe --tags --abbrev=0)
+latest_tag=$(git describe --tags --match "[0-9]*.[0-9]*.[0-9]*" --abbrev=0)
 
 # Parse the major, minor, and patch versions from the latest tag
 IFS='.' read -r major minor patch <<< "${latest_tag//v}"
