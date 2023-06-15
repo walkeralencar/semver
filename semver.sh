@@ -15,6 +15,9 @@ latest_tag=$(git describe --tags --match "[0-9]*.[0-9]*.[0-9]*" --abbrev=0)
 # Parse the major, minor, and patch versions from the latest tag
 IFS='.' read -r major minor patch <<< "${latest_tag//v}"
 
+# Get message of the current commit
+commit_message=$(git log --format=%B -n 1 HEAD)
+
 # Construct the new version
 new_version="${major}.${minor}.${patch}"
 
