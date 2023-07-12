@@ -6,3 +6,4 @@ Shell script for SEMVER to be used on CI/CD.
 2. Verify if semver tag exists at HEAD commit then leave, else continue to generate a new tag
 3. Get message and extract the branch name from the current commit
 4. Verify the branch name and increment the version accordingly
+4. create tag
