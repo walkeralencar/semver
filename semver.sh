@@ -48,3 +48,6 @@ esac
 new_version="${major}.${minor}.${patch}"
 
 echo "New version: $new_version"
+
+# Create a new tag
+git tag "$new_version"
