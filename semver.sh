@@ -24,7 +24,27 @@ if [[ $commit_message =~ ^Merge\ branch\ \'(release\/|feature\/|hotfix\/)([^\']+
     branch=${BASH_REMATCH[1]}
 fi
 
-# Construct the new version
+# Check the branch name and increment the version accordingly
+case "$branch" in
+    release/*)
+        major=$((major + 1))
+        minor=0
+        patch=0
+        ;;
+    feature/*)
+        minor=$((minor + 1))
+        patch=0
+        ;;
+    hotfix/*)
+        patch=$((patch + 1))
+        ;;
+    *)
+        echo "No version increment required or branch name is not valid."
+        exit 0
+        ;;
+esac
+
+# Build the new version
 new_version="${major}.${minor}.${patch}"
 
 echo "New version: $new_version"
