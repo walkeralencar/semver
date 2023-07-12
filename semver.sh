@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get tag at the current commit
-latest_semver_tag=$(git describe --tags --match "[0-9]*.[0-9]*.[0-9]*" --abbrev=0 --contains HEAD &>/dev/null)
+latest_semver_tag=$(git describe --tags --match "[0-9]*.[0-9]*.[0-9]*" --abbrev=0 --contains HEAD)
 
 # If tag already exists, exit
 if [ -n "$latest_semver_tag" ]; then
